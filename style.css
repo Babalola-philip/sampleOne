@@ -1,0 +1,128 @@
+
+
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+body {
+  background-color: white;
+  background-color:
+#948d8b
+;
+  font-family: "Raleway", sans-serif;
+}
+.wrapper {
+  width: 350px;
+  height: 500px;
+  margin: auto;
+  margin-top: 50px;
+  position: relative;
+  .form {
+    border-radius: 10px;
+    overflow: hidden;
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 100;
+    background-color: #3C0008;
+    transition: all ease 1s;
+    box-shadow: 0px 0px 0.5px 0.5px lighten(yellow,20%);
+    &.form-horizontal {
+      transform: rotate(-90deg);
+      z-index: 99;
+    }
+    .title {
+      font-size: 4rem;
+      text-align: center;
+      color: #320919;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      background-color: rgb(0, 255, 115);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    form {
+      padding: 10px 20px;
+      .profileImage {
+        text-align: center;
+        font-size: 8rem;
+        color: yellow;
+      }
+      &.loginForm {
+        margin: 30px auto;
+      }
+      &.signupForm {
+        .profileImage {
+          font-size: 6rem;
+        }
+      }
+      .form-group {
+        position: relative;
+        .form-icon {
+          position: absolute;
+          height: 50px;
+          width: 40px;
+          text-align: center;
+          line-height: 50px;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          color:#A24857;
+          background-color: rgb(166, 172, 170);
+          border-top-right-radius: 80px;
+          border-bottom-right-radius: 80px;
+        }
+      }
+      input {
+        border-radius: 0px;
+        background-color: #A24857;
+        padding: 24px;
+        box-shadow: none;
+        border-color: #A24857;
+        padding-left: 45px;
+        color: yellow;
+        &::placeholder{
+          color:yellow;
+        }
+      }
+      button[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 0px;
+        background-color: rgb(216, 216, 185);
+        color: #3C0008;
+        text-transform: uppercase;
+        font-weight:600;
+      }
+    }
+  }
+}
+
+
+
+
+/*link*/
+.info{
+  position:fixed;
+  bottom:10px;
+  left: 10px;
+  right: 10px;
+  margin:auto;
+  text-align:center;
+  color:#212121;
+  font-weight:600;
+  width:250px;
+  font-size:2rem;
+  a{
+   font-size:5rem; 
+    display:block;
+    color:#212121;
+  }
+}
