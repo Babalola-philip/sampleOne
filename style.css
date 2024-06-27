@@ -3,10 +3,12 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
+
 header {
-    background-color: #FFD166;
+    background: linear-gradient(to right, rgb(253, 219, 145), rgb(255, 181, 71) 99%);
     padding: 20px 0;
 }
 
@@ -70,40 +72,81 @@ nav ul li a:hover {
 }
 
 .firstsec {
-    /* background-image: url('background.jpg'); */
-    /* background-size: cover; */
-    background-color: #FFD166;
-    /* color: #FFD166; */
+    background: linear-gradient(to right, rgb(253, 219, 145), rgb(255, 181, 71) 99%);;
+    padding: 50px 0;
     text-align: center;
-    padding: 100px 0;
 }
+
+.firstsec .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -20px;
+}
+
+.Fcontent {
+    flex: 1;
+    text-align: left;
+    max-width: 60%;
+    margin-top: -290px;
+}
+
 .Fcontent h2 {
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 20px;
+    color: #2A367F;
 }
 
 .Fcontent p {
     font-size: 1.2em;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    color: #CAAA7C;
 }
 
-.Fcontent form {
-    max-width: 400px;
-    margin: 0 auto;
+.input-container {
+    position: relative;
 }
 
-.Fcontent input[type="text"] {
-    width: 70%;
+.input-container input[type="text"] {
+    width: 100%;
+    padding: 10px 40px 10px 10px; 
+    font-size: 1em;
+}
+
+.input-container .logo-button {
+    position: absolute;
+    top: 0;
+    right: 0;
     padding: 10px;
-    font-size: 1em;
-}
-
-.Fcontent button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #4CAF50;
+    width: 5%;
+    background-color: #574bd1;
+    border-radius: 100px;
     color: #fff;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+.input-container .logo-button img {
+    max-width: 100%;
+    height: auto;
+}
+/* .fineGirl {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-end; 
+    align-items: flex-end; 
+} */
+
+.fineGirl img {
+    max-width: 100%;
+    height: auto;
+}
+
+.secondSec{
+    text-align: center;
+}
+.text h2{
+    font-size: 35;
+}
+
