@@ -149,8 +149,9 @@ nav ul li a:hover {
 }
 
 .fine-girl img {
-    max-width: 500px;
-    height: auto;
+    max-width: 1000px;
+    height: 100%;
+    margin-top: 70px;
     border-radius: 25px;
     position: relative;
     top: 55px;
