@@ -69,4 +69,69 @@ const sendVerificationEmail = (email, verificationLink) => {
   });
 };
 
-module.exports = { userRegistration };
+const verifyUserEmail = async (req, res) => {
+  const { token } = req.query;
+  try {
+    const decoded = jwt.verify(token, secret);
+    console.log("Token received", decoded);
+
+    const users = await User.findOne({ where: { email: decoded.email } });
+    if (!users) {
+      console.log("User not found");
+      return res.json({ message: "User not found" });
+    }
+
+    if (users.isVerified) {
+      console.log("User already verified", users);
+      return res.json({ message: "User already verified" });
+    }
+
+    users.isVerified = true,
+    users.verificationToken = null,
+    await users.save();
+
+
+    console.log("User verification complete", users);
+    res.json({ message: "User verification complete", users });
+
+    
+  } catch (error) {
+    if (error.name === "TokenExpiredError") {
+      console.log("Token expired", error);
+      return res.status(401).json({ message: "Token expired" });
+    }
+    console.log("Error verifying token");
+    return res.status(401).json({ message: "Error verifying token" });
+  }
+};
+
+const login = async(req,res) =>{
+    const {email, password} = req.body
+    try {
+        const user = await User.findOne({where: {email:email}})
+        if(!user){
+            console.log("User not found");
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        const verifyPassword = bcryptjs.compareSync(password, user.password)
+        if(!verifyPassword){
+            console.log("Wrong password");
+            return res.status(401).json({ message: "Wrong password" });
+        }
+
+        if(!user.isVerified){
+            console.log("User not verified");
+            return res.status(401).json({ message: "User not verified" });
+        }
+
+        const token = jwt.sign({email:email}, secret)
+        res.json({token})
+
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+module.exports = { userRegistration, verifyUserEmail, login };
