@@ -5,6 +5,7 @@ dotenv.config();
 const sequelize = require("./config/database");
 const router = require("./routes/user.route");
 
+
 let PORT = process.env.PORT || 4000;
 
 app.use(express.json());

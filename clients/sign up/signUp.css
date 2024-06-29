@@ -89,7 +89,7 @@ body {
   text-decoration: none;
 }
 
-.form-container .google-button {
+.form-container .google {
   background-color: #4285f4;
   color: #fff;
   border: none;
@@ -100,6 +100,11 @@ body {
   margin-bottom: 10px;
   cursor: pointer;
 }
+/* .form-container .google img {
+  width: 20px;
+  margin-right: 10px;
+} */
+
 
 .form-container .or {
   margin: 20px 0;
