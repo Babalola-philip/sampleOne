@@ -157,3 +157,17 @@ nav ul li a:hover {
     top: 55px;
     
 }
+.secondSection {
+    text-align: center;
+    margin-top: 55px;
+}
+
+.text h2 {
+    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: x-large;
+}
+
+.text p {
+    font-size: medium;
+}
