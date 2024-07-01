@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 const sequelize = require("../config/database");
 const User = require("../models/user.model");
+const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const bcryptjs = require("bcryptjs");
 const nodemailer = require("nodemailer");
@@ -17,6 +18,11 @@ const generateVerificationToken = (email) => {
 const userRegistration = async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
+
+    if (!firstName || !lastName || !email || !password) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
     const verificationToken = generateVerificationToken(email);
 
     const hashedPassword = await bcryptjs.hash(password, 10);
@@ -41,6 +47,7 @@ const userRegistration = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    res.status(500).json({ message: "Registration failed" });
   }
 };
 
@@ -86,15 +93,12 @@ const verifyUserEmail = async (req, res) => {
       return res.json({ message: "User already verified" });
     }
 
-    users.isVerified = true,
-    users.verificationToken = null,
-    await users.save();
-
+    (users.isVerified = true),
+      (users.verificationToken = null),
+      await users.save();
 
     console.log("User verification complete", users);
     res.json({ message: "User verification complete", users });
-
-    
   } catch (error) {
     if (error.name === "TokenExpiredError") {
       console.log("Token expired", error);
@@ -105,33 +109,31 @@ const verifyUserEmail = async (req, res) => {
   }
 };
 
-const login = async(req,res) =>{
-    const {email, password} = req.body
-    try {
-        const user = await User.findOne({where: {email:email}})
-        if(!user){
-            console.log("User not found");
-            return res.status(404).json({ message: "User not found" });
-        }
-
-        const verifyPassword = bcryptjs.compareSync(password, user.password)
-        if(!verifyPassword){
-            console.log("Wrong password");
-            return res.status(401).json({ message: "Wrong password" });
-        }
-
-        if(!user.isVerified){
-            console.log("User not verified");
-            return res.status(401).json({ message: "User not verified" });
-        }
-
-        const token = jwt.sign({email:email}, secret)
-        res.json({token})
-
-        
-    } catch (error) {
-        console.log(error);
+const login = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await User.findOne({ where: { email: email } });
+    if (!user) {
+      console.log("User not found");
+      return res.status(404).json({ message: "User not found" });
     }
-}
+
+    const verifyPassword = bcryptjs.compareSync(password, user.password);
+    if (!verifyPassword) {
+      console.log("Wrong password");
+      return res.status(401).json({ message: "Wrong password" });
+    }
+
+    if (!user.isVerified) {
+      console.log("User not verified");
+      return res.status(401).json({ message: "User not verified" });
+    }
+
+    const token = jwt.sign({ email: email }, secret);
+    res.json({ token });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = { userRegistration, verifyUserEmail, login };
