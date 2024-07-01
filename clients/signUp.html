@@ -30,11 +30,11 @@
             Continue with Google</button>
           <p class="or">or</p>
           <form action="#">
-            <input type="text" placeholder="First name" name="firstName" required />
-            <input type="text" placeholder="Last name" name="lastName" required />
-            <input type="email" placeholder="Email" name="email" required />
-            <input type="password" placeholder="Password" name="password" required />
-            <button type="submit" class="signup-button">Sign up</button>
+            <input type="text" placeholder="First name" name="firstName" id="fName" required />
+            <input type="text" placeholder="Last name" name="lastName" id="lName" required />
+            <input type="email" placeholder="Email" name="email" id="email" required />
+            <input type="password" placeholder="Password" name="password" id="password" required />
+            <button onclick="signupBtn(event)" type="submit" class="signup-button">Sign up</button>
           </form>
           <p>
             Need solutions for your business?
@@ -43,5 +43,6 @@
         </div>
       </div>
     </div>
+    <script src="signup.js"></script>
   </body>
 </html>
