@@ -11,6 +11,7 @@ header {
     rgb(253, 219, 145),
     rgb(255, 181, 71) 99%
   );
+  /* background-color: whitesmoke; */
   padding: 20px 0;
   position: fixed;
     top: 0;
@@ -170,4 +171,78 @@ nav ul li a:hover {
 
 .text p {
     font-size: medium;
+}
+
+.stats-section .stat-box {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  gap: 2;
+}
+
+.stat-box {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+.stat-box p{
+  font-size: small;
+}
+
+.main-content-section {
+  padding: 50px 0;
+  background-color: #ffffff;
+}
+
+.main-content-section img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.main-content-section h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.main-content-section p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.main-content-section .btn-primary {
+  font-size: 1.2em;
+  padding: 10px 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3D3D3D;
+}
+.sub-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3D3D3D;
+}
+.feature-box {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.feature-box h5 {
+  font-weight: bold;
+}
+.feature-box p {
+  color: #666;
+}
+.feature-box .icon {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 10px;
 }
